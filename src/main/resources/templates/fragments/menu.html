@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div><a th:insert="~{/fragments/menu :: #nav-menu}"></a></div>
+
+<input type="submit" class="text-button" value="vote+"/>
+
+<div>
+    <table id="nav-menu" width="100%">
+        <td align="center">
+            <table>
+                <tr>
+                    <td><a>&nbsp&nbsp</a><a th:href="@{/index}">Home</a></td>
+                    <td><a>&nbsp&nbsp</a><a th:href="@{/products/products-all}">products</a></td>
+                    <td sec:autorize="hasAnyAuthority('ADMIN','MANAGER')">
+                        <a>&nbsp&nbsp</a><a th:href="@{/admins/users}">users</a></td>
+
+<!--                    <td>-->
+<!--                        <div sec:authorize="isAuthenticated()">-->
+<!--                            <span sec:authentication="principal.username">&nbsp&nbsp user</span>-->
+<!--                        </div>-->
+<!--                    </td>-->
+
+                    <td>
+                        <div sec:authorize="isAuthenticated()">
+                            <a>&nbsp&nbsp</a><a th:href="@{/users/profile}">profile</a>
+                        </div>
+
+                        <div sec:authorize="!isAuthenticated()">
+                            <a>&nbsp&nbsp</a><a th:href="@{/login}">login</a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div sec:authorize="isAuthenticated()">
+                            <span sec:authenticated="principal.username"></a></span>
+                            <a>&nbsp&nbsp</a><a th:href="@{/bucket}">bucket</a></div>
+                    </td>
+
+                    <td>
+                        <div sec:authorize="isAuthenticated()">
+                            <form method="post" th:action="@{/logout}" class="inline">
+                                <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+                                <button type="submit" name="submit_param" value="logout"
+                                        class="link-button">logout
+                                </button>
+                            </form>
+                        </div>
+
+                        <div sec:authorize="!isAuthenticated()">
+                            <a th:href="@{/registration}">registration</a></div>
+                    </td>
+
+                </tr>
+            </table>
+        </td>
+    </table>
+</div>
+
+</body>
+
+</html>
+<!--<span sec:authenticated="principal.username">&nbsp&nbsp user: Bill</span>-->
+<!--<a>&nbsp&nbsp</a><a th:href="@{/users/profile}">profile</a></div>-->

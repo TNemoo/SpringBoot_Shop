@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <div><br><a th:insert="~{/fragments/menu :: #nav-menu}"></a><br></div>
+</head>
+
+<body>
+<div align="center">
+
+<br><br>
+<a href="/let-s-take-error">Let's take error to see how the error page is working</a>
+
+</div>
+</body>
+
+
+
+
+</html>
+
+<!--что бы кнопка Logout превратилась в ссылку-->
+<style>
+    .inline {
+        display: inline;
+    }
+
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1em;
+        font-family: serif;
+    }
+
+    .link-button:focus {
+        outline: none;
+    }
+
+    .link-button:active {
+        color: red;
+    }
+</style>
