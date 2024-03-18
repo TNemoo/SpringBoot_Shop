@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override //изменение данных пользователя
-    public boolean save(UserDTO userDTO, String principalPhoneNumber) {
+    public String save(UserDTO userDTO, String principalPhoneNumber) {
         User user = userRepository.findByPhoneNumber(principalPhoneNumber);
 
         if (!userDTO.getPhoneNumber().equals(principalPhoneNumber))
@@ -71,11 +71,19 @@ public class UserServiceImpl implements UserService {
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setEmail(userDTO.getEmail());
         user.setAddress(userDTO.getAddress());
-        if (!userDTO.getPasswordConfirm().isEmpty() && userDTO.getPasswordConfirm() != null)
+
+        String s = "Personal data has been changed";
+
+        System.out.println(userDTO.getPassword());
+        System.out.println(userDTO.getPasswordConfirm());
+
+        if (!(userDTO.getPasswordConfirm().isEmpty() || userDTO.getPasswordConfirm() == null)) {
             user.setPassword(passwordEncoder.encode(userDTO.getPasswordConfirm()));
+            s = "Password and personal data have been changed";
+        }
 
         userRepository.save(user);
-        return true;
+        return s;
     }
 
     @Override

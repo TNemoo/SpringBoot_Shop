@@ -27,7 +27,7 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING) //позволяет безопасно добавлять новые значения перечисления или изменять порядок нашего перечисления.
     private Role role;
-    @OneToOne(cascade = CascadeType.REMOVE) // удаление пользователя ведет к удалению корзины
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.REMOVE) // удаление пользователя ведет к удалению корзины
     private Bucket bucket;
     private boolean active;
 }

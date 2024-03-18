@@ -1,21 +1,21 @@
 -- DELETE FROM users;
 
-INSERT INTO users (id, active, bucket_id, address, email, name, password, phone_number, role)
-VALUES (1, true, null, 'New York City, First street', 'John@gmail.com', 'John'
+INSERT INTO users (id, active, address, email, name, password, phone_number, role)
+VALUES (1, true, 'New York City, First street', 'John@gmail.com', 'John'
 , '$2a$08$FQ0Kx/h4qqDT796MjzMDvuNgmIeLMdfzKYctG2l5d3GqLDQ2BN9Fy', '+1-125-265-25-25', 'ADMIN');
 ALTER SEQUENCE user_seq RESTART WITH 2;
 -- password pass
 
 
-INSERT INTO users (id, active, bucket_id, address, email, name, password, phone_number, role)
- VALUES (2, true, null, 'New York City, Second street', 'Lola@gmail.com', 'Lola'
+INSERT INTO users (id, active, address, email, name, password, phone_number, role)
+ VALUES (2, true, 'New York City, Second street', 'Lola@gmail.com', 'Lola'
         , '$2a$08$O0mzfWWafKGMCWuPymPc4OaIssS4P0gwGu5yaFFzkVlXCknUqz7kW', '+11-215-525-26-80', 'USER');
 ALTER SEQUENCE user_seq RESTART WITH 3;
 -- password 123
 
 
-INSERT INTO users (id, active, bucket_id, address, email, name, password, phone_number, role)
-VALUES (3, true, null, 'New York City, Third street', 'Nikolas@gmail.com', 'Nikolas'
+INSERT INTO users (id, active, address, email, name, password, phone_number, role)
+VALUES (3, true, 'New York City, Third street', 'Nikolas@gmail.com', 'Nikolas'
        , '$2a$08$guhplgUnASCD9jxs3I4IJ.W7zaqyxbYDbRKkdEn0gyu6E94ngm/MK', '+11-235-561-56-89', 'USER');
 ALTER SEQUENCE user_seq RESTART WITH 4;
 -- password pass

@@ -54,15 +54,14 @@ public class UserController {
         User user = userService.findByPhoneNumber(userDTO.getPhoneNumber());
 
         if (userDTO.getPassword() == null
-                || user == null
                 || userDTO.getPassword().isEmpty()
+                || user == null
                 || !principal.getName().equals(userDTO.getPhoneNumber())
                 || !passwordEncoder.matches(userDTO.getPassword(), user.getPassword()))
             throw new RuntimeException("Password is not correct");
 
-        userService.save(userDTO, user.getPhoneNumber());
-        String s = "The data has been changed";
-        System.out.println("redirect:/users/profile?message=" + s);
+        String s = userService.save(userDTO, user.getPhoneNumber());
+
         return "redirect:/users/profile?message=" + s;
         //в метод передаем текущий номер телефона от принципала, что б вытащить данные пользователя из БД
     }

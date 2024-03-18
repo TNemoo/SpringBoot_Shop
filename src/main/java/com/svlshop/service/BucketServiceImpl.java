@@ -117,8 +117,6 @@ public class BucketServiceImpl implements BucketService{
 
         list = list.stream().distinct().collect(Collectors.toList());
 
-        System.out.println("\n***" +list + "\n");
-
         for (Product x : list) {
             bucketDTO.addBucketDetailsDTO(new BucketDetailsDTO(x, map.get(x)));
         }

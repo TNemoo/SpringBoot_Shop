@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService { //security
 
-    boolean save(UserDTO userDTO);
     boolean save(User user);
+    boolean save(UserDTO userDTO);
+    String save(UserDTO userDTO, String principalPhoneNumber);
     boolean delete(User user);
-    boolean save(UserDTO userDTO, String principalPhoneNumber);
     List<User> findAll();
     User findByPhoneNumber(String phoneNumber);
 }

@@ -40,13 +40,13 @@
     <br><br>
 
     <h3> Changing the password </h3>
-    If you want to change your password,
-    <label for="passwordConfirm">enter a new password: </label>
+    If you want to change your password,<br>
+    <label for="passwordConfirm">enter existing and new password: </label>
     <input type="text" th:field="*{passwordConfirm}" id="passwordConfirm"/>
     <div style="color:red" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">New password Error</div>
     <br><br>
 
-    <input type="submit" value="Change password"/>
+    <input type="submit" value="make changes"/>
 
     <br><br>
     <div><a style="color:#0000FF" th:utext="${message}"></a></div>

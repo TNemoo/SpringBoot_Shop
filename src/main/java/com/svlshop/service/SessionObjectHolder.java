@@ -13,10 +13,6 @@ public class SessionObjectHolder {
 
     private long amountClicks;
 
-    public SessionObjectHolder() {
-        System.out.println("SessionObjectHolder was created");
-    }
-
     public long getAmountClicks() {
         return amountClicks;
     }
@@ -24,6 +20,5 @@ public class SessionObjectHolder {
     public void addClick() {
         amountClicks++;
     }
-
     //WebApplicationContext.SCOPE_SESSION - активен только в сессии
 }
