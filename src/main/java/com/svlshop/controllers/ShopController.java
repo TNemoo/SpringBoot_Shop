@@ -20,17 +20,23 @@ public class ShopController {
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String index(Model model, HttpSession httpSession) {
-        sessionObjectHolder.addClick();
+    public String index() {
+        sessionObjectHolder.addClick(); //считает количество вызовов метода из браузера
+        return "index";
+    }
+
+    @RequestMapping({"/other"})
+    public String other(Model model, HttpSession httpSession) {
+        //считаем клики по ссылке "/products"
         model.addAttribute("amountClicks", sessionObjectHolder.getAmountClicks());
 
-        if (httpSession.getAttribute("myId") == null) {
-            String uuid = UUID.randomUUID().toString();
-            httpSession.setAttribute("myId", uuid);
-            System.out.println("Generated UUID: " + uuid);
-        }
+        // Создаем аналог кукис, который отрабатывает только в рамках сессии, используя HttpSession
+        // HttpSession создается и внедряется Spring, но для страховки используем генератор, во избежание null:
+        if (httpSession.getAttribute("myID") == null)
+            httpSession.setAttribute("myID", UUID.randomUUID().toString());
+        model.addAttribute("uuid", httpSession.getAttribute("myID"));
 
-        return "index";
+        return "other";
     }
 
     @GetMapping("/error")

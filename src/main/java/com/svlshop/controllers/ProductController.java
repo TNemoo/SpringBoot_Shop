@@ -32,7 +32,6 @@ public class ProductController {
     public String getAll(Model model) {
         System.out.println(productService.findAll());
         model.addAttribute("productsAll", productService.findAll());
-        sessionObjectHolder.addClick();
         return "/products/products-all";
     }
 
