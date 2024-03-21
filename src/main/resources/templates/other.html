@@ -10,8 +10,8 @@
 <body>
 <div align="center">
 
-<br><br>
-<a href="/let-s-take-error">Let's take error to see how the error page is working</a>
+    <br><br>
+    <a href="/let-s-take-error">Let's take error to see how the error page is working</a>
 
     <br><br>
     Amount clicks by "Home": <b th:text="${amountClicks}"/>
@@ -19,10 +19,20 @@
     <br><br>
     Current UUID: <b th:text="${uuid}"/>
 
+    <br><br>
+    <a href="/temp/for-admins-and-manager">Only ADMINS and MANAGERS!</a>
+
+    <br><br>
+    <a href="/temp/for-auth">Only authenticated people!</a>
+
+    <br><br>
+    <a href="/temp/for-one-user">Only for user with phone number +1-125-265-25-25</a>
+
+    <br><br>
+    <a href="@{/temp/for-owner/{phoneNumber}(phoneNumber=${principal.name})}"/>
+
 </div>
 </body>
-
-
 
 
 </html>
