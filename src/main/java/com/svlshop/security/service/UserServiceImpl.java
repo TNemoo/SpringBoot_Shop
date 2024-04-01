@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
         checkExistPhoneNumber(userDTO.getPhoneNumber());
         User user = userDTOToUser(userDTO);
 
-//        userRepository.save(user);
         bucketService.createBucket(user);
         return true;
     }
@@ -147,14 +146,4 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("User's number " + phoneNumber + " was not found");
         return user;
     }
-
-//    private UserDTO userToDTO(User user) {
-//        return UserDTO.builder()
-//                .name(user.getName())
-//                .phoneNumber(user.getPhoneNumber())
-//                .email(user.getEmail())
-//                .address(user.getAddress())
-//                .build();
-//    }
-
 }

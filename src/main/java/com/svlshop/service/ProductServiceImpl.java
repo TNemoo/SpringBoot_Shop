@@ -16,8 +16,6 @@ public class ProductServiceImpl implements ProductService{
         this.autowired = service;
     }
 
-
-
     @Override
     public List<ProductDTO> findAll() {
         return mapper.fromProductList(autowired.getProductRepository().findAll());

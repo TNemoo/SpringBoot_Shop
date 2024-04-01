@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <div><br><a th:insert="~{/fragments/menu :: #nav-menu}"></a><br></div>
+</head>
+
+<body>
+<div align="center">
+
+    <br><br>
+    <a href="/let-s-take-error">Let's take error to see how the error page is working</a>
+
+    <br><br>
+    Amount clicks by "Home": <b th:text="${amountClicks}"/>
+
+    <br><br>
+    Current UUID: <b th:text="${uuid}"/>
+
+    <br><br>
+    <a href="/temp/for-admins-and-manager">Only ADMINS and MANAGERS!</a>
+
+    <br><br>
+    <a href="/temp/for-auth">Only authenticated people!</a>
+
+    <br><br>
+    <a href="/temp/for-one-user">Only for user with phone number +1-125-265-25-25</a>
+
+    <br><br>
+    <a href="@{/temp/for-owner/{phoneNumber}(phoneNumber=${principal.name})}"/>
+
+</div>
+</body>
+
+
+</html>
+
+<!--что бы кнопка Logout превратилась в ссылку-->
+<style>
+    .inline {
+        display: inline;
+    }
+
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1em;
+        font-family: serif;
+    }
+
+    .link-button:focus {
+        outline: none;
+    }
+
+    .link-button:active {
+        color: red;
+    }
+</style>

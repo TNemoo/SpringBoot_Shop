@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="icon" type="image/ico" th:href="@{../static/favicon.ico}">
+    <div><br><a th:insert="~{/fragments/menu :: #nav-menu}"></a><br></div>
+</head>
+<body>
+
+<div align="center">
+    <table>
+        <tr>
+            <td><h4>&nbsp&nbsp Title</h4></td>
+            <td><h4>&nbsp&nbsp Price</h4></td>
+            <td sec:authorize="isAuthenticated()">
+                    <h4>&nbsp&nbsp Order</h4>
+            </td>
+        </tr>
+        <tr th:each="product : ${productsAll}">
+            <td><a>&nbsp&nbsp <a th:text="${product.title}"/></a></td>
+            <td><a>&nbsp&nbsp <a th:text="${product.price}"/></a></td>
+            <td>
+                <div sec:authorize="isAuthenticated()"><a>&nbsp&nbsp&nbsp&nbsp</a>
+                    <a th:href="@{/products/{productId}(productId=${product.id})}"/>order</a></div>
+            </td>
+
+        </tr>
+    </table>
+
+<br><br>
+<div sec:authorize="!isAuthenticated()">
+    <a style="color: #0000FF">To order products you should log in</a></div>
+
+</div>
+
+</body>
+</html>
+
+<style>
+    .inline {
+        display: inline;
+    }
+
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1em;
+        font-family: serif;
+    }
+
+    .link-button:focus {
+        outline: none;
+    }
+
+    .link-button:active {
+        color: red;
+    }
+</style>

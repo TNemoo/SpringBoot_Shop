@@ -5,6 +5,8 @@ import com.svlshop.dto.BucketDetailsDTO;
 import com.svlshop.entity.Bucket;
 import com.svlshop.entity.Product;
 import com.svlshop.security.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

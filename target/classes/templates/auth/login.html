@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <div><br><a th:insert="~{/fragments/menu :: #nav-menu}"></a><br></div>
+</head>
+
+<body>
+
+<form th:action="@{/process_login}" method="post">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <table>
+        <tr>
+            <td>phone number</td>
+            <td><input type="text" name="phoneNumber"> </td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="text" name="password"> </td>
+        </tr>
+    </table>
+
+
+
+    <div><span style="color: red" th:if="${loginError}" class="error">
+        <br>The authentication is not correct. Please, try again<br></span></div>
+
+    <br>
+    <button type="submit">Log in</button>
+
+</form>
+
+
+</body>
+</html>
